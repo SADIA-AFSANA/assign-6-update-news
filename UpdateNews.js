@@ -17,6 +17,7 @@ const categoriesList = async () => {
     }
     // console.log(category);
 }
+categoriesList()
 // const displaynews = categories => {
 //     const categoryContainer = document.getElementById('category-container');
 //     categories.forEach(category => {
@@ -62,5 +63,5 @@ const categoriesList = async () => {
 // }
 
 // displaynews()
-categoriesList()
+
 loadCategories()
