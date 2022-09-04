@@ -46,28 +46,31 @@ const newsDetails = newes => {
         <p class="fw-bolder">${news.author.name}</p>
         <p><span class="text-bold text-primary">views:</span>${news.total_view}M</p>
         </div>
-
- 
-<button type="button" class="btn btn-primary">Show More</button>
-</button>     
- </div>
-        </div>
+<button onclick="showModal()" type="button"class="btn byn-primary">Show Details</button>
+       
         `;
         categoryContainer.appendChild(newsDiv)
     });
 }
-const showModal = async (news_id) => {
-    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+const showModal = async id => {
+    const url = `https://openapi.programming-hero.com/api/news/${id}`;
     const res = await fetch(url);
     const data = await res.json();
-    displayModal(data.data);
+    display(data.data[0]);
+}
+const display = newsDetail => {
+    // console.log(newsDetail);
+    const modaldetailcontainer = document.getElementById('newsDetailslabel');
+    modaldetailcontainer.innerText = newsDetail.title;
+    const modalBody = document.getElementById('modal-body');
+    modalBody.innerHTML = '';
+    const modalDiv = document.createElement('div');
+    modalDiv.innerHTML = `
+       <img class="w-50" src="${newsDetail.image_url}">
+       <p>${newsDetail.details}</p>
+       <img class ="w-25"src="${newsDetail.author.img}">
+        `;
+    modalBody.appendChild(modalDiv);
+}
+display()
 
-    const display = modal => {
-        const modalBody = document.getElementById("exampleModal");
-        modalBody.innerHTML = `
-    <img src="${modal.image_url}"/>
-    <p class="py-4">${modal.details}</p>
-    `;
-        modalBody.appendChild()
-    }
-    display()
