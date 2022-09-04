@@ -29,6 +29,7 @@ const newsDetails = newes => {
     // console.log(newes);
     const categoryContainer = document.getElementById('category-container');
     newes.forEach(news => {
+
         // console.log(news);
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('col');
@@ -45,19 +46,28 @@ const newsDetails = newes => {
         <p class="fw-bolder">${news.author.name}</p>
         <p><span class="text-bold text-primary">views:</span>${news.total_view}M</p>
         </div>
-        <label for="my-modal-3" onclick="showModal('${news.image_url}','${news.details}')" class="btn btn-primary modal-button">Show Details</label>
 
-        </div>
+ 
+<button type="button" class="btn btn-primary">Show More</button>
+</button>     
+ </div>
         </div>
         `;
         categoryContainer.appendChild(newsDiv)
     });
 }
-const showModal = () => {
-    const modalBody = document.getElementById('modal-body');
-    modalBody.innerHTML = `
-    <img src="${news.image_url}"/>
-    <p class="py-4">${news.details}</p>
-    `;
-}
-loadCategories()
+// const showModal = async (news_id) => {
+//     const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+//     const res = await fetch(url);
+//     const data = await res.json();
+//     displayModal(data.data);
+
+//     const displayModal = modal => {
+//         const modalBody = document.getElementById("exampleModal");
+//         modalBody.innerHTML = `
+//     <img src="${modal.image_url}"/>
+//     <p class="py-4">${modal.details}</p>
+//     `;
+//         modalBody.appendChild()
+//     }
+//     displayModal()
