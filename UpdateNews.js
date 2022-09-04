@@ -24,6 +24,7 @@ const displaynews = async (catId) => {
     const data = await res.json();
     newsDetails(data.data)
 }
+
 const newsDetails = newes => {
     // console.log(newes);
     const categoryContainer = document.getElementById('category-container');
@@ -44,57 +45,19 @@ const newsDetails = newes => {
         <p class="fw-bolder">${news.author.name}</p>
         <p><span class="text-bold text-primary">views:</span>${news.total_view}M</p>
         </div>
-        <button type="button" class="btn btn-primary">Details</button>
+        <label for="my-modal-3" onclick="showModal('${news.image_url}','${news.details}')" class="btn btn-primary modal-button">Show Details</label>
+
         </div>
         </div>
         `;
         categoryContainer.appendChild(newsDiv)
     });
 }
-// const displaynews = categories => {
-//     const categoryContainer = document.getElementById('category-container');
-//     categories.forEach(category => {
-//         const categoryDiv = document.createElement('div');
-//         categoryDiv.classList.add('row');
-//         categoryDiv.innerHTML = `
-//             <figure><img src="https://placeimg.com/400/400/arch" alt="Album"></figure>
-//                     <div class="card-body">
-//                         <h2 class="card-title">New album is released!</h2>
-//                         <p>Click the button to listen on Spotiwhy app.</p>
-//                         <div class="card-actions justify-end">
-//                             <button class="btn btn-primary">Listen</button>
-//                         </div>
-//                     </div>
-//             `;
-//         categoryContainer.appendChilda(categoryDiv);
-//     })
-// }
-// const displaynews = categories => {
-//     console.log(id);
-//     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
-//     const res = await fetch(url);
-//     const data = await res.json();
-//     // console.log(data.data.category_id);
-//     const categoryContainer = document.getElementById('category-container');
-//     categories.forEach(category => {
-//         const categoryDiv = document.createElement('div');
-//         categoryDiv.classList.add('row');
-//         categoryDiv.innerHTML = `
-//     <figure><img src="https://placeimg.com/400/400/arch" alt="Album"></figure>
-//             <div class="card-body">
-//                 <h2 class="card-title">New album is released!</h2>
-//                 <p>Click the button to listen on Spotiwhy app.</p>
-//                 <div class="card-actions justify-end">
-//                     <button class="btn btn-primary">Listen</button>
-//                 </div>
-//             </div>
-//     `;
-//         categoryContainer.appendChilda(categoryDiv);
-//     });
-//     console.log(category);
-
-// }
-
-// displaynews()
-
+const showModal = () => {
+    const modalBody = document.getElementById('modal-body');
+    modalBody.innerHTML = `
+    <img src="${news.image_url}"/>
+    <p class="py-4">${news.details}</p>
+    `;
+}
 loadCategories()
