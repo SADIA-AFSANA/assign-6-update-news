@@ -56,18 +56,18 @@ const newsDetails = newes => {
         categoryContainer.appendChild(newsDiv)
     });
 }
-// const showModal = async (news_id) => {
-//     const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
-//     const res = await fetch(url);
-//     const data = await res.json();
-//     displayModal(data.data);
+const showModal = async (news_id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayModal(data.data);
 
-//     const displayModal = modal => {
-//         const modalBody = document.getElementById("exampleModal");
-//         modalBody.innerHTML = `
-//     <img src="${modal.image_url}"/>
-//     <p class="py-4">${modal.details}</p>
-//     `;
-//         modalBody.appendChild()
-//     }
-//     displayModal()
+    const display = modal => {
+        const modalBody = document.getElementById("exampleModal");
+        modalBody.innerHTML = `
+    <img src="${modal.image_url}"/>
+    <p class="py-4">${modal.details}</p>
+    `;
+        modalBody.appendChild()
+    }
+    display()
