@@ -46,7 +46,7 @@ const newsDetails = newes => {
         <p class="fw-bolder">${news.author.name}</p>
         <p><span class="text-bold text-primary">views:</span>${news.total_view}M</p>
         </div>
-<button onclick="showModal()" type="button"class="btn byn-primary">Show Details</button>
+<button onclick="showModal('${news.author}')" type="button"class="btn byn-primary">Show Details</button>
        
         `;
         categoryContainer.appendChild(newsDiv)
